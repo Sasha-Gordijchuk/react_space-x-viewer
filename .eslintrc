@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "rules" : {
+    "no-console": "warn",
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "prefer-const": "error",
+    "indent": ["error", 2],
+    "semi": ["error", "always"],
+    "newline-before-return": "error",
+    "no-multiple-empty-lines": "error",
+    "no-undef":"error"
+  }
+}
