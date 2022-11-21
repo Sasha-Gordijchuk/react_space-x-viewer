@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { getLaunces } from './api/launches';
 import { Launch } from './types/launch';
+import { LaunchList } from './components/LaunchList';
 
 export const App: React.FC = () => {
   const [launchesFromServer, setLaunchesFromServer] = useState<Launch[]>([]);
@@ -18,13 +19,14 @@ export const App: React.FC = () => {
     loadData();
   }, []);
 
-  console.log(launchesFromServer);  
-
   return (
     <div className="App">
       <Header />
 
       <main>
+        <LaunchList 
+          launches={launchesFromServer}
+        />
         Main
       </main>
 
