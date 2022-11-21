@@ -10,9 +10,9 @@ export const App: React.FC = () => {
   const [launchesFromServer, setLaunchesFromServer] = useState<Launch[]>([]);
 
   const loadData = async () => {
-    const temp = await getLaunces();
+    const response = await getLaunces();
 
-    setLaunchesFromServer(temp);
+    setLaunchesFromServer(response.data);
   };
 
   useEffect(() => {
@@ -20,14 +20,14 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
 
-      <main>
+      <main className='catalog'>
         <LaunchList 
           launches={launchesFromServer}
         />
-        Main
+
       </main>
 
       <Footer />

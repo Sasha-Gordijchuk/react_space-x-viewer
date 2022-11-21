@@ -1,0 +1,9 @@
+.catalog {
+  max-width: 1440px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

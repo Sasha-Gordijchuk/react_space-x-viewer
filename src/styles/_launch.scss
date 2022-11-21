@@ -1,0 +1,22 @@
+.launch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 288px;
+  border: 1px solid gray;
+  border-radius: 8px;
+
+  padding: 16px;
+
+  &__image {
+    height: 256px;
+    width: 256px;
+
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+}
