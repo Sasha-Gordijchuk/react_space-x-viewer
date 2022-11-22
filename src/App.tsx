@@ -8,6 +8,7 @@ import { LaunchList } from './components/LaunchList';
 
 export const App: React.FC = () => {
   const [launchesFromServer, setLaunchesFromServer] = useState<Launch[]>([]);
+  const [sortedLaunches, setSortedLaunches] = useState<Launch[]>([]);
 
   const loadData = async () => {
     const response = await getLaunces();
@@ -17,7 +18,19 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     loadData();
-  }, []);
+
+    setSortedLaunches(launchesFromServer.sort((
+      { date_unix: first },
+      { date_unix: second },
+    ) => {
+      if (first && second) {
+        return second - first;
+      }
+  
+      return 0;
+    }));
+  }, [launchesFromServer]);
+
 
   return (
     <div className='app'>
@@ -25,7 +38,7 @@ export const App: React.FC = () => {
 
       <main className='catalog'>
         <LaunchList 
-          launches={launchesFromServer}
+          launches={sortedLaunches}
         />
 
       </main>

@@ -15,7 +15,8 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
     success,
     details,
   } = launch;
-  const [rocketInfo, setRocketInfo] = useState<any>(null);
+  // const [rocketInfo, setRocketInfo] = useState<any>(null);
+  const image = links.patch.small || 'https://media.istockphoto.com/id/1264696423/vector/rocket-vector-icon.jpg?b=1&s=612x612&w=0&k=20&c=_FUB5KQBiHfqfEw00eGzxj7r1PHQ2jXai_NyrtLbv08=';
 
   // useEffect(() => {
   //   if (rocket) {
@@ -29,9 +30,9 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
   return (
     <li className='catalog__item launch'>
       <img 
-        src={links.patch.small} 
+        src={image}
         alt={name}
-        className='launch__image'
+        className={'launch__image'}
       />
 
       <h3 className='launch__title'>

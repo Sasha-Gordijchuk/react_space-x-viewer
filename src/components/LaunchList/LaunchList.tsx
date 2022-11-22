@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const LaunchList: React.FC<Props> = ({ launches }) => {
-  const visibleLaunches = launches.slice(0, 12);
+  const visibleLaunches = launches.slice(0, 20);
 
   return (
     <ul className='catalog__list'>
