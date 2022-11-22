@@ -1,9 +1,15 @@
 .catalog {
   max-width: 1440px;
 
+  display: flex;
+  padding: 32px;
+
+  
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px;
+    justify-content: space-evenly;
   }
+
 }

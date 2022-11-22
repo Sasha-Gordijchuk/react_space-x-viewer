@@ -7,11 +7,11 @@ interface Props {
 }
 
 export const LaunchList: React.FC<Props> = ({ launches }) => {
-  // const visibleLaunches = launches.slice(0, 1);
+  const visibleLaunches = launches.slice(0, 12);
 
   return (
     <ul className='catalog__list'>
-      {launches.map(launch => {
+      {visibleLaunches.map(launch => {
         return (
           <LaunchItem 
             key={launch.id}

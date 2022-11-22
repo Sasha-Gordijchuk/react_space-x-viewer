@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
 
+  height: fit-content;
   max-width: 288px;
   border: 1px solid gray;
   border-radius: 8px;
@@ -18,5 +19,28 @@
 
   &__title {
     font-size: 24px;
+
+    margin-bottom: 18px;
+  }
+
+  &__info {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    font-size: 18px;
+
+    &:last-of-type {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__info-title {
+    width: 60%;
+  }
+
+  &__info-value {
+    width: 40%;
   }
 }
