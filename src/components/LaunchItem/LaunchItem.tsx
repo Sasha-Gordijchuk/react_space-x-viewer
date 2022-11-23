@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { getRocket } from '../../api/launches';
+import React from 'react';
 import { Launch } from '../../types/launch';
 
 interface Props {
@@ -10,7 +9,6 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
   const {
     name,
     links,
-    // rocket,
     date_utc,
     success,
     details,
@@ -38,16 +36,6 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
       <h3 className='launch__title'>
         {name}
       </h3>
-
-      {/* <div className='launch__info'>
-        <p className='launch__info-title'>Rocket</p>
-        <p className='launch__info-value'>
-          {rocketInfo
-            ? rocketInfo.name
-            : 'No info'
-          }
-        </p>
-      </div> */}
 
       <div className='launch__info'>
         <p className='launch__info-title'>Date</p>
