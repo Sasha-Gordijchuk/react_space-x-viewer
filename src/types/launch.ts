@@ -43,7 +43,7 @@ export interface Launch {
   launchpad: string | null,
   flight_number: number,
   name: string,
-  date_utc: string | null,
+  date_utc: string,
   date_unix: number | null,
   date_local: string | null,
   date_precision: string | null,
