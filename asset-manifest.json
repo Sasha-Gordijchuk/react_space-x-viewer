@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_space-x-viewer/static/css/main.ad775e5d.css",
+    "main.js": "/react_space-x-viewer/static/js/main.48f98beb.js",
+    "index.html": "/react_space-x-viewer/index.html",
+    "main.ad775e5d.css.map": "/react_space-x-viewer/static/css/main.ad775e5d.css.map",
+    "main.48f98beb.js.map": "/react_space-x-viewer/static/js/main.48f98beb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad775e5d.css",
+    "static/js/main.48f98beb.js"
+  ]
+}
