@@ -1,6 +1,5 @@
-import { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import { getCrewMember, getLaunchpad } from '../../api/launches';
+import { getLaunchpad } from '../../api/launches';
 import { Launch } from '../../types/launch';
 
 interface Props {

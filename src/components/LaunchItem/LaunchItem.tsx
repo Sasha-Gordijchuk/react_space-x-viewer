@@ -16,7 +16,6 @@ export const LaunchItem: React.FC<Props> = ({
     links,
     date_utc,
     success,
-    details,
     rocket,
   } = launch;
   const [rocketInfo, setRocketInfo] = useState<any>();
@@ -88,10 +87,6 @@ export const LaunchItem: React.FC<Props> = ({
           }
         </p>
       </div>
-
-      {/* <p className='launch__description'>
-        {details}
-      </p> */}
     </li>
   );
 };
