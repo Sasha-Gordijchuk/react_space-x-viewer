@@ -1,0 +1,13 @@
+.info {
+  display: flex;
+  flex-direction: row;
+
+  &__title {
+    width: 30%;
+    font-weight: 600;
+  }
+
+  &__value {
+    width: 70%;
+  }
+}

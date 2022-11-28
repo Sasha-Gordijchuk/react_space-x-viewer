@@ -1,0 +1,16 @@
+.filter {
+  width: 100%;
+  max-width: 760px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__item {
+    display: flex;
+    gap: 16px;
+
+    font-size: 1.2em;
+  }
+}

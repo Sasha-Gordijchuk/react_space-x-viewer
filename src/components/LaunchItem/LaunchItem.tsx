@@ -4,9 +4,13 @@ import { Launch } from '../../types/launch';
 
 interface Props {
   launch: Launch;
+  setSelectedLaunch: (launch: Launch) => void;
 }
 
-export const LaunchItem: React.FC<Props> = ({ launch }) => {
+export const LaunchItem: React.FC<Props> = ({ 
+  launch,
+  setSelectedLaunch,
+}) => {
   const {
     name,
     links,
@@ -15,13 +19,13 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
     details,
     rocket,
   } = launch;
-  const [rocketName, setRocketInfo] = useState<any>();
+  const [rocketInfo, setRocketInfo] = useState<any>();
   const image = links.patch.small || 'https://media.istockphoto.com/id/1264696423/vector/rocket-vector-icon.jpg?b=1&s=612x612&w=0&k=20&c=_FUB5KQBiHfqfEw00eGzxj7r1PHQ2jXai_NyrtLbv08=';
 
   const loadRocket = async (rocketId: string) => {
     const response = await getRocket(rocketId);
 
-    setRocketInfo(response.data.name);
+    setRocketInfo(response.data);
   };
 
   useEffect(() => {
@@ -31,7 +35,10 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
   }, [rocket]);  
 
   return (
-    <li className='catalog__item launch'>
+    <li 
+      className='catalog__item launch'
+      onClick={() => setSelectedLaunch(launch)}
+    >
       <img 
         src={image}
         alt={name}
@@ -45,7 +52,10 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
       <div className='launch__info'>
         <p className='launch__info-title'>Rocket</p>
         <p className='launch__info-value'>
-          {rocketName}
+          {rocketInfo 
+            ? rocketInfo.name
+            : 'No info'
+          }
         </p>
       </div>
 
@@ -79,9 +89,9 @@ export const LaunchItem: React.FC<Props> = ({ launch }) => {
         </p>
       </div>
 
-      <p className='launch__description'>
+      {/* <p className='launch__description'>
         {details}
-      </p>
+      </p> */}
     </li>
   );
 };

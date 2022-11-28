@@ -1,0 +1,18 @@
+.header {
+  height: 64px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;  
+
+  background-color: #191923;
+  
+  &__text {
+    margin: 0 auto;
+
+    font-weight: bold;
+    font-style: italic;
+    font-size: 32px;
+    color: #FBFEF9;
+  }
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { getLaunches, getRockets } from './api/launches';
 import { Launch } from './types/launch';
@@ -8,6 +7,9 @@ import { LaunchList } from './components/LaunchList';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Loader } from './components/Loader';
 import { Filter } from './components/Filter';
+import { LaunchModal } from './components/LaunchModal';
+
+import 'bulma/css/bulma.css';
 
 const LIMIT = 8;
 
@@ -18,6 +20,8 @@ export const App: React.FC = () => {
   const [visibleLaunches, setVisibleLaunches] = useState<Launch[]>([]);
   const [launchesCounter, setLaunchesCounter] = useState<number>(LIMIT);
   const [hasMore, setHasMore] = useState<boolean>(true);
+  const [selectedLaunch, setSelectedLaunch] = useState<Launch | null>(null);
+  const [selectedRocket, setSelectedRocket] = useState<any>(null);
 
   const [filterByRocket, setFilterByRocket] = useState<string>('');
   const [filterByYear, setFilterByYear] = useState<number>(0);
@@ -93,6 +97,15 @@ export const App: React.FC = () => {
   }, [filtredLaunches]);
 
   useEffect(() => {
+    if (selectedLaunch) {
+      setSelectedRocket(rocketsFromServer
+        .find(({ id }) => id === selectedLaunch.rocket));
+    } else {
+      setSelectedRocket(null);
+    }
+  }, [selectedLaunch, rocketsFromServer]);
+
+  useEffect(() => {
     filterLaunches(filterByRocket, filterByYear, filterBySuccess);
   }, [filterByRocket, filterByYear, filterBySuccess]);
 
@@ -138,11 +151,20 @@ export const App: React.FC = () => {
         >
           <LaunchList
             launches={visibleLaunches}
+            setSelectedLaunch={setSelectedLaunch}
           />
         </InfiniteScroll>
       </main>
 
-      <Footer />
+      {selectedLaunch
+        && (
+          <LaunchModal
+            launch={selectedLaunch}
+            rocket={selectedRocket}
+            setSelectedLaunch={setSelectedLaunch}
+          />
+        )
+      }
     </div>
   );
 };

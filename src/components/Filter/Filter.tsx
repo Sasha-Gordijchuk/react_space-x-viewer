@@ -66,7 +66,7 @@ export const Filter: React.FC<Props> = ({
       </div>
 
       <div className='filter__item'>
-        success
+        Success
 
         <select 
           name='year'

@@ -14,3 +14,11 @@ export const getRockets = () => {
 export const getRocket = (id: string) => {
   return axios.get<any>(`${BASE_URL}/rockets/${id}`);
 }; 
+
+export const getLaunchpad = (id: string) => {
+  return axios.get<any>(`${BASE_URL}/launchpads/${id}`);
+};
+
+export const getCrewMember = (id: string) => {
+  return axios.get<any>(`${BASE_URL}/crew/${id}`);
+};
