@@ -112,6 +112,7 @@ export const App: React.FC = () => {
   const fetchData = () => {
     const newLimit = launchesCounter + LIMIT;
     const launchesToAdd = filtredLaunches.slice(launchesCounter, newLimit);
+    setHasMore(true);
 
     if (filtredLaunches.length > visibleLaunches.length) {
       setTimeout(() => {
@@ -136,24 +137,30 @@ export const App: React.FC = () => {
       />
 
       <main className='catalog'>
-        <InfiniteScroll
-          dataLength={visibleLaunches.length}
-          next={fetchData}
-          hasMore={hasMore}
-          loader={<Loader />}
-          style={{
-            display: 'flex',
-            flexFlow: 'column',
-            alignItems: 'center',
-            gap: '32px',
-            overflow: 'visible',
-          }}
-        >
-          <LaunchList
-            launches={visibleLaunches}
-            setSelectedLaunch={setSelectedLaunch}
-          />
-        </InfiniteScroll>
+        {filtredLaunches.length
+          ? (
+            <InfiniteScroll
+              dataLength={visibleLaunches.length}
+              next={fetchData}
+              hasMore={hasMore}
+              loader={<Loader />}
+              style={{
+                display: 'flex',
+                flexFlow: 'column',
+                alignItems: 'center',
+                gap: '32px',
+                overflow: 'visible',
+              }}
+            >
+              <LaunchList
+                launches={visibleLaunches}
+                setSelectedLaunch={setSelectedLaunch}
+              />
+            </InfiniteScroll> 
+          ) : (
+            <h1 className='catalog__error'>Upsss... There are no such launches, change the filter</h1>
+          )}
+        
       </main>
 
       {selectedLaunch

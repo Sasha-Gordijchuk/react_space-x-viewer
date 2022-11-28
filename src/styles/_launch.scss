@@ -8,6 +8,14 @@
   border-radius: 8px;
 
   padding: 16px;
+  
+  transition: transform 300ms;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(103%);
+    border: 2px solid gray;
+  }
 
   &__image {
     height: 256px;
